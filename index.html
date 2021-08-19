@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="sytle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1 class="title">Calculadora</h1>
+        <div class="calculadora">
+          <!-- Fila uno -->
+          <div class="mostrar">
+            <input
+              type="text"
+              class="display display--acu"
+              value=""
+              id="display-acu"
+              readonly
+            />
+            <input
+              type="text"
+              class="display display--num"
+              id="display"
+              value="0"
+              readonly
+            />
+          </div>
+
+          <!-- Fila dos -->
+          <button class="btn btn--info" data-value="info">info</button>
+          <button class="btn btn--reset" data-value="reset">C</button>
+          <button class="btn btn--clear" data-value="clear">CE</button>
+          <!-- ocupa dos columnas -->
+          <button
+            class="btn btn--of"
+            data-value="estado-calc"
+            data-estado="false"
+          >
+            ON
+          </button>
+
+          <!-- Fila 3 -->
+          <button class="btn btn--numero btn--7" data-value="7">7</button>
+          <button class="btn btn--numero btn--8" data-value="8">8</button>
+          <button class="btn btn--numero btn--9" data-value="9">9</button>
+          <button class="btn btn--ope btn--potencia" data-value="^">^</button>
+          <button class="btn btn--ope btn--porcentaje" data-value="%">%</button>
+
+          <!-- Fila 4 -->
+          <button class="btn btn--numero btn--4" data-value="4">4</button>
+          <button class="btn btn--numero btn--5" data-value="5">5</button>
+          <button class="btn btn--numero btn--6" data-value="6">6</button>
+          <button class="btn btn--ope btn--suma" data-value="+">+</button>
+          <button class="btn btn--ope btn--resta" data-value="-">-</button>
+
+          <!-- Fila 5 -->
+          <button class="btn btn--numero btn--1" data-value="1">1</button>
+          <button class="btn btn--numero btn--2" data-value="2">2</button>
+          <button class="btn btn--numero btn--3" data-value="3">3</button>
+          <button class="btn btn--ope btn--divi" data-value="/">/</button>
+          <button class="btn btn--ope btn--multi" data-value="*">*</button>
+
+          <!-- Fila 6 -->
+          <!-- ocupa dos columnas -->
+          <button class="btn btn--numero btn--0" data-value="0">0</button>
+          <button class="btn btn--punto" data-value=".">.</button>
+          <!-- ocupa dos columnas -->
+          <button class="btn btn--igual" data-value="=">=</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js" type="module"></script>
+    <div class="mensaje-alert">
+      <button type="button" data-value="btn-mensaje" class="mensaje__btn">
+        X
+      </button>
+      <div class="mensaje__content" id="mensaje-content"></div>
+    </div>
+  </body>
+</html>
