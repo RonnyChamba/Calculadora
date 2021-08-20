@@ -12,7 +12,7 @@ body {
 }
 .content {
   padding: 10px;
-  max-width: 400px;
+  max-width: 600px;
   border-radius: 5px;
   background-color: darkcyan;
 }
@@ -22,8 +22,8 @@ body {
 }
 .calculadora {
   display: grid;
-  grid-template-columns: repeat(5, 60px);
-  grid-template-rows: 70px repeat(5, 30px);
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: 70px repeat(6, 30px);
   gap: 4px;
 }
 .mostrar {
@@ -46,10 +46,13 @@ body {
   height: 40%;
   font-size: 1em;
 }
-.btn--of,
-.btn--igual,
-.btn--0 {
+
+.btn-span-2 {
   grid-column: span 2;
+}
+
+.btn--igual {
+  grid-row: span 2;
 }
 .btn--ope,
 .btn--igual {

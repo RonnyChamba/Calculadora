@@ -69,6 +69,10 @@ function listenerBtn(item) {
       // boton cerrar modal
       if (dataAtributeValue === "btn-cerrar-modal")
         document.getElementById("modal").classList.remove("modal--show");
+
+      if (item.classList.contains("btn--link")) {
+        window.open(dataAtributeValue);
+      }
     } else {
       let mensaje =
         dataAtributeValue === "estado-calc"

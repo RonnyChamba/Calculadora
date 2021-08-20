@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora</title>
     <link rel="stylesheet" href="sytle.css" />
+    <link href="https://file.myfontastic.com/JUwFAwWE8oUWFGdiTZSWaX/icons.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -31,12 +32,13 @@
           </div>
 
           <!-- Fila dos -->
-          <button class="btn btn--info" data-value="info">info</button>
+          <button class="btn btn--info" data-value="info">Info</button>
+          <button class="btn btn--link" data-value="https://ronnyrene.blogspot.com/">Blog</button>
+          <button class="btn btn--link" data-value="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math">Math</button>
+          <button class="btn  btn-span-2 btn--clear" data-value="clear"> &#60----</button>
           <button class="btn btn--reset" data-value="reset">C</button>
-          <button class="btn btn--clear" data-value="clear">CE</button>
-          <!-- ocupa dos columnas -->
           <button
-            class="btn btn--of"
+            class="btn btn--of btn-span-2"
             data-value="estado-calc"
             data-estado="false"
           >
@@ -44,16 +46,8 @@
           </button>
 
           <!-- Fila 3 -->
-          <button class="btn btn--numero btn--7" data-value="7">7</button>
-          <button class="btn btn--numero btn--8" data-value="8">8</button>
-          <button class="btn btn--numero btn--9" data-value="9">9</button>
-          <button class="btn btn--ope btn--potencia" data-value="^">^</button>
-          <button class="btn btn--ope btn--porcentaje" data-value="%">%</button>
           <button class="btn btn--raiz btn--ope--clic" data-value="raiz">
             raiz^2
-          </button>
-          <button class="btn btn--cubo btn--ope--clic" data-value="cubo">
-            X^3
           </button>
           <button class="btn btn--seno btn--ope--clic" data-value="seno">
             sin
@@ -61,6 +55,16 @@
           <!-- Devuelve el seno hiperbólico de un número. -->
           <button class="btn btn--senoh btn--ope--clic" data-value="senoh">
             sinh
+          </button>    
+          <button class="btn btn--numero btn--7" data-value="7">7</button>
+          <button class="btn btn--numero btn--8" data-value="8">8</button>
+          <button class="btn btn--numero btn--9" data-value="9">9</button>
+          <button class="btn btn--ope btn--divi" data-value="/">/</button>
+          <button class="btn btn--ope btn--porcentaje" data-value="%">%</button>
+          
+          <!-- Fila 4 -->
+          <button class="btn btn--cubo btn--ope--clic" data-value="cubo">
+            X^3
           </button>
           <button class="btn btn--coseno btn--ope--clic" data-value="coseno">
             cos
@@ -69,6 +73,16 @@
           <button class="btn btn--cosenoh btn--ope--clic" data-value="cosenoh">
             cosh
           </button>
+          <button class="btn btn--numero btn--4" data-value="4">4</button>
+          <button class="btn btn--numero btn--5" data-value="5">5</button>
+          <button class="btn btn--numero btn--6" data-value="6">6</button>
+          <button class="btn btn--ope btn--multi" data-value="*">*</button>
+          <button class="btn btn--ope btn--potencia" data-value="^">^</button>
+
+            <!-- Fila 5 -->
+          <button class="btn btn--abs btn--ope--clic" data-value="abs">
+            abs(x)
+          </button>
           <button class="btn btn--tan btn--ope--clic" data-value="tan">
             tan
           </button>
@@ -76,24 +90,30 @@
           <button class="btn btn--tanh btn--ope--clic" data-value="tanh">
             tanh
           </button>
+          <button class="btn btn--numero btn--1" data-value="1">1</button>
+          <button class="btn btn--numero btn--2" data-value="2">2</button>
+          <button class="btn btn--numero btn--3" data-value="3">3</button>
+          <button class="btn btn--ope btn--suma" data-value="+">+</button>
+          <button class="btn btn--ope btn--resta" data-value="-">-</button>
 
+          <!-- Fila 6 -->
           <button class="btn btn--log btn--ope--clic" data-value="log">
             log(x)
           </button>
           <button class="btn btn--trunc btn--ope--clic" data-value="trunc">
             trunc(x)
           </button>
-          <button class="btn btn--abs btn--ope--clic" data-value="abs">
-            abs(x)
-          </button>
 
           <button class="btn btn--numero btn--pi" data-value="3.141592">
             PI
           </button>
+          <button class="btn  btn-span-2 btn--numero btn--0" data-value="0">0</button>
+          <button class="btn  btn--punto" data-value=".">.</button>
+          <button class="btn  btn-span-2 btn--igual" data-value="=">=</button>
+
           <button class="btn btn--numero btn--ln10" data-value="2.302585">
             LN10
           </button>
-
           <!-- Redondear un numero. -->
           <button
             class="btn btn--redondear btn--ope--clic"
@@ -101,27 +121,12 @@
           >
             round
           </button>
-
-          <!-- Fila 4 -->
-          <button class="btn btn--numero btn--4" data-value="4">4</button>
-          <button class="btn btn--numero btn--5" data-value="5">5</button>
-          <button class="btn btn--numero btn--6" data-value="6">6</button>
-          <button class="btn btn--ope btn--suma" data-value="+">+</button>
-          <button class="btn btn--ope btn--resta" data-value="-">-</button>
-
-          <!-- Fila 5 -->
-          <button class="btn btn--numero btn--1" data-value="1">1</button>
-          <button class="btn btn--numero btn--2" data-value="2">2</button>
-          <button class="btn btn--numero btn--3" data-value="3">3</button>
-          <button class="btn btn--ope btn--divi" data-value="/">/</button>
-          <button class="btn btn--ope btn--multi" data-value="*">*</button>
-
-          <!-- Fila 6 -->
-          <!-- ocupa dos columnas -->
-          <button class="btn btn--numero btn--0" data-value="0">0</button>
-          <button class="btn btn--punto" data-value=".">.</button>
-          <!-- ocupa dos columnas -->
-          <button class="btn btn--igual" data-value="=">=</button>
+          <button class="btn btn--numero btn--euler" data-value="2.71828">
+            E
+          </button>
+          <button class="btn btn--link icon-google" data-value="https://www.google.com/"></button>
+          <button class="btn btn--link icon-youtube" data-value="https://www.youtube.com/"></button>
+          <button class="btn btn--link icon-globe" data-value="https://aulavirtual.uleam.edu.ec/auth/module.php/core/loginuserpass.php?AuthState=_632fc3ad6bd73e30582e79d783190d67af8243d9b7%3Ahttp%3A%2F%2Faulavirtual.uleam.edu.ec%2Fauth%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttp%253A%252F%252Faulavirtual.uleam.edu.ec%26cookieTime%3D1629390170%26RelayState%3Dhttp%253A%252F%252Faulavirtual.uleam.edu.ec%252Fxisce%252Fprincipal%252F"></button>
         </div>
       </div>
     </div>
