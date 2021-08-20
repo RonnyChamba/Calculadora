@@ -4,6 +4,7 @@ import { modal, mensaje as mensajeAlert } from "./componentes.js";
 // Crear el modal
 modal();
 
+console.log(Math.round(3.5));
 // Selecciono todos los (button)
 const $botones = [...document.querySelectorAll("button")];
 
@@ -52,6 +53,11 @@ function listenerBtn(item) {
       // Clic sobre los botones de operaciones
       if (item.classList.contains("btn--ope"))
         botonOperaciones(dataAtributeValue);
+
+      // Clic sobre los botones de operaciones
+      if (item.classList.contains("btn--ope--clic")) {
+        opeClick(dataAtributeValue);
+      }
 
       if (item.classList.contains("btn--igual")) btnIgual();
       if (item.classList.contains("btn--punto")) btnPunto(dataAtributeValue);
@@ -107,6 +113,7 @@ const mostrarNumeros = (dataAtributeValue) => {
       es el resultado de la operacion, y si ahora presiona en un boton numero, tendra que reemplzar el dato del display
     */
 
+  // Asignar el valor de
   if (
     ($display.value.length == 1 && $display.value === "0") ||
     opeActive ||
@@ -131,8 +138,9 @@ const botonOperaciones = (dataAtributeValue) => {
 
     typeOpe = dataAtributeValue;
     if (numeroInput != 0) {
-      if (acumulador == 0) acumulador = numeroInput;
-      else {
+      if (acumulador == 0) {
+        acumulador = numeroInput;
+      } else {
         acumulador = operaciones(dataAtributeValue, acumulador, numeroInput);
         // Ubicar el resultado de la operacion en el display
         $display.value = acumulador;
@@ -153,6 +161,18 @@ const operaciones = (tipoOperacion, acumulador, numeroNuevo) => {
   }
   if (tipoOperacion === "^") acumulador = Math.pow(acumulador, numeroNuevo);
   if (tipoOperacion === "%") acumulador = (acumulador * numeroNuevo) / 100;
+  if (tipoOperacion === "raiz") acumulador = parseInt($display.value);
+  if (tipoOperacion === "cubo") acumulador = parseInt($display.value);
+  if (tipoOperacion === "seno") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "senoh") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "coseno") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "cosenoh") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "tan") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "tanh") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "log") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "redondear") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "trunc") acumulador = parseFloat($display.value);
+  if (tipoOperacion === "abs") acumulador = parseFloat($display.value);
 
   return acumulador;
 };
@@ -175,7 +195,21 @@ const resetValores = () => {
 };
 const btnIgual = () => {
   // Si acumulador tiene cargado valor
-  if (acumulador != 0) {
+  if (
+    acumulador != 0 ||
+    typeOpe === "raiz" ||
+    typeOpe === "cubo" ||
+    typeOpe === "seno" ||
+    typeOpe === "senoh" ||
+    typeOpe === "coseno" ||
+    typeOpe === "cosenoh" ||
+    typeOpe === "tan" ||
+    typeOpe === "tanh" ||
+    typeOpe === "log" ||
+    typeOpe === "redondear" ||
+    typeOpe === "trunc" ||
+    typeOpe === "abs"
+  ) {
     let valorAnterior = acumulador;
     let nuevoValor = parseFloat($display.value);
     let nuevoResultado = operaciones(typeOpe, valorAnterior, nuevoValor);
@@ -245,4 +279,73 @@ const onOffCalculadora = (item) => {
 
   // Cuando apage la calculadora, limpio todo
   if (!estadoCalc) resetValores();
+};
+
+// Funcion que calculan directo el resultado
+const opeClick = (operacion = "raiz") => {
+  typeOpe = operacion;
+  let valorInput = parseFloat($display.value);
+  let resul = 0;
+  let acuDisplay = "";
+  if (operacion === "raiz") {
+    resul = Math.sqrt(valorInput);
+    acuDisplay = `sqrt(${valorInput})`;
+  }
+  if (operacion === "cubo") {
+    resul = Math.pow(valorInput, 3);
+    acuDisplay = `cube(${valorInput})`;
+  }
+  if (operacion === "seno") {
+    resul = Math.sin(valorInput);
+    acuDisplay = `sin(${valorInput})`;
+  }
+  if (operacion === "senoh") {
+    resul = Math.sinh(valorInput);
+    acuDisplay = `sinh(${valorInput})`;
+  }
+  if (operacion === "coseno") {
+    resul = Math.cos(valorInput);
+    acuDisplay = `cos(${valorInput})`;
+  }
+  if (operacion === "cosenoh") {
+    resul = Math.cosh(valorInput);
+    acuDisplay = `cosh(${valorInput})`;
+  }
+  if (operacion === "tan") {
+    resul = Math.tan(valorInput);
+    acuDisplay = `tan(${valorInput})`;
+  }
+
+  if (operacion === "tanh") {
+    resul = Math.tanh(valorInput);
+    acuDisplay = `tanh(${valorInput})`;
+  }
+  if (operacion === "log") {
+    resul = Math.log10(valorInput);
+    acuDisplay = `log(${valorInput})`;
+  }
+  if (operacion === "redondear") {
+    resul = Math.round(valorInput);
+    acuDisplay = `round(${valorInput})`;
+  }
+  if (operacion === "trunc") {
+    resul = Math.trunc(valorInput);
+    acuDisplay = `trunc(${valorInput})`;
+  }
+  if (operacion === "abs") {
+    resul = Math.abs(valorInput);
+    acuDisplay = `ABS(${valorInput})`;
+  }
+
+  $displayAcu.value += acuDisplay;
+  $display.value = resul;
+
+  // Reiniciar/ importante a 0
+  acumulador = 0;
+
+  // Para que no pueda clear caracter por caracterss
+  opeResultMostrada = true;
+
+  // Si es igual a true, y presiona un numero, reemplazara el texto del display
+  banderIgual = true;
 };
